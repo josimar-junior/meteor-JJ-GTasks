@@ -3,13 +3,16 @@ Template.addTarefa.helpers({
 })
 
 Template.addTarefa.events({
-  'submit #addTarefa': function(e){
+  'submit #addTarefa, click #addBtn': function(e){
     e.preventDefault()
     Tarefas.insert({
-      nome: e.target.tarefa.value,
+      //nome: e.target.tarefa.value,
+      nome: $('#tarefa').val(),
       status: true
     })
-    alert('Adicionado')
-    e.target.tarefa.value = ''
+    Materialize.toast("Tarefa adicionada com sucesso!", 3000, 'blue')
+    //e.target.tarefa.value = ''
+    $('#tarefa').val('')
   }
+
 })

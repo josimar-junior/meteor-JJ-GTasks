@@ -1,3 +1,4 @@
+
 Template.lista.helpers({
   tarefas:function() {
     return Tarefas.find()
@@ -15,7 +16,19 @@ Template.lista.helpers({
 Template.lista.events({
   'change input[type=checkbox]': function(e){
     e.preventDefault()
-    Tarefas.update(this._id,{$set:{status:e.currentTarget.checked}})
+    Tarefas.update(this._id,{
+      $set:{
+        status:e.currentTarget.checked
+      }
+    })
+  },
+  'click .removeTarefa':function(e) {
+      e.preventDefault
+      Tarefas.remove(this._id)
+
+      //alert('Deletado!')
   }
 })
+
+
 //Vivianne Alves 255299 viviannealvesdesousa@gmail.com
