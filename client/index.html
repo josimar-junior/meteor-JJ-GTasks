@@ -2,6 +2,7 @@
   <head>
     <title>GTasks</title>
      <!--link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
   </head>
   <body>
     <header>
@@ -9,6 +10,10 @@
     </header>
     <main>
       <div class="container">
+        <div class="section center-align">
+          {{>loginButtons}}
+        </div>
+        {{#if currentUser}}
         <div class="section">
           {{>addTarefa}}
         </div>
@@ -16,6 +21,12 @@
         <div class="section">
           {{>lista}}
         </div>
+        {{else}}
+        <div class="divider"></div>
+          <div class="section">
+            <h4 class="center-align">Você não está logado!!!</h4>
+          </div>
+        {{/if}}
       </div>
     </main>
 
